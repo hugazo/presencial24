@@ -7,8 +7,15 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="<%= params[:action] %>">
+    <% if params[:controller] == 'pages' %>
+      <%= render 'layouts/nav1' %>
+    <% else %>
+      <%= render 'layouts/nav2' %>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-  <body>
-    <%= yield %>
   </body>
 </html>
